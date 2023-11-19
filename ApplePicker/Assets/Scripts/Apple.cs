@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Apple : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static float bottomY = -20f;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(transform.position.y < bottomY)
+        {
+            Destroy(gameObject);
+            ApplePIcker ap = Camera.main.GetComponent<ApplePIcker>();
+            ap.AppleDesctroyed();
+        }
     }
 }
